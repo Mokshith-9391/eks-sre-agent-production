@@ -1,0 +1,24 @@
+openapi: 3.0.1
+info:
+  title: EKS SRE Agent API
+  version: 1.0.0
+paths:
+  /chat:
+    post:
+      summary: Diagnose an EKS incident
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [cluster, namespace, message]
+              properties:
+                cluster: {type: string}
+                namespace: {type: string}
+                message: {type: string}
+      responses:
+        "200":
+          description: Diagnosis
+        "403":
+          description: Not authorized

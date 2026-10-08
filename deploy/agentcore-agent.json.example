@@ -1,0 +1,6 @@
+{
+  "name": "eks-sre-agent",
+  "image": "<ACCOUNT>.dkr.ecr.<REGION>.amazonaws.com/eks-sre-agent:<TAG>",
+  "architecture": "ARM64",
+  "port": 8080
+}

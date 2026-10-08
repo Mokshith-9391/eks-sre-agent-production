@@ -1,0 +1,7 @@
+{
+  "name": "eks-sre-mcp",
+  "image": "<ACCOUNT>.dkr.ecr.<REGION>.amazonaws.com/eks-sre-mcp:<TAG>",
+  "architecture": "ARM64",
+  "port": 8000,
+  "mcp_path": "/mcp"
+}

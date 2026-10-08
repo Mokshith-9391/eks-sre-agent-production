@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>EKS SRE Agent</title>
+<style>body{font-family:Arial;max-width:1000px;margin:30px auto}textarea,input{width:100%;padding:10px;margin:6px 0}button{padding:10px 18px}pre{white-space:pre-wrap;background:#f5f5f5;padding:15px}</style>
+</head>
+<body>
+<h1>EKS SRE Agent</h1>
+<input id="cluster" value="prod-eks" placeholder="Cluster">
+<input id="namespace" value="default" placeholder="Namespace">
+<textarea id="message" rows="5">The payments-api pods are in CrashLoopBackOff. Diagnose the incident using evidence and give me the safest next steps.</textarea>
+<button onclick="run()">Diagnose</button>
+<pre id="out"></pre>
+<script>
+async function run(){
+ const out=document.getElementById('out');
+ out.textContent='Collecting evidence...';
+ const r=await fetch('/invocations',{method:'POST',headers:{'content-type':'application/json'},
+ body:JSON.stringify({cluster:cluster.value,namespace:namespace.value,message:message.value})});
+ out.textContent=JSON.stringify(await r.json(),null,2);
+}
+</script>
+</body></html>

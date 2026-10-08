@@ -1,0 +1,8 @@
+FROM public.ecr.aws/docker/library/python:3.11-slim
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+WORKDIR /app
+COPY requirements-mcp.txt .
+RUN pip install --no-cache-dir -r requirements-mcp.txt
+COPY mcp_server ./mcp_server
+EXPOSE 8000
+CMD ["python","-m","mcp_server.server"]

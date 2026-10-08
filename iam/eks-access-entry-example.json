@@ -1,0 +1,5 @@
+{
+  "clusterName": "prod-eks",
+  "principalArn": "arn:aws:iam::123456789012:role/EksSreAgentRole",
+  "type": "STANDARD"
+}
